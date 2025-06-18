@@ -10,16 +10,16 @@ By completing these tasks, you will learn:
 - Two different approaches for handling images in AI systems:
    - **OpenAI approach**: Base64 encoding for direct embedding
    - **DIAL approach**: Bucket storage with attachment references
-- How to work with file uploads, downloads, and async operations
-- How to adapt requests across different AI model vendors through DIAL Core
+- How to work with file uploads, downloads with DIAL bucket
+- How DIAL adapts requests for different AI model vendors
+
+---
 
 ## 📋 Requirements
 
 - Python 3.11+
 - pip
 - API key for DIAL service
-- Basic understanding of HTTP requests and async/await
-- `dialx-banner.png` image file in project root (provided)
 
 ## 🔧 Setup
 
@@ -57,6 +57,8 @@ By completing these tasks, you will learn:
    dialx-banner.png                 # 📁 Sample image
    ```
 
+---
+
 ## 📝 Your Tasks
 
 Complete the implementation of these three practice files:
@@ -82,18 +84,6 @@ Complete the implementation of these three practice files:
 - Download and save generated images
 - **Key Learning:** AI image generation and file handling
 
-
-## 🔍 Understanding the Approaches
-
-### OpenAI Approach (Base64)
-- **Pros:** Simple, direct embedding
-- **Cons:** Large request sizes, limited to specific models
-- **Use case:** Quick prototyping, OpenAI-compatible models
-
-### DIAL Approach (Attachments)
-- **Pros:** Efficient, works across all model vendors
-- **Cons:** Requires additional upload step
-- **Use case:** Production systems, multi-vendor support
 
 ## 🎯 Expected Outputs
 
@@ -130,9 +120,5 @@ Once you complete the basic tasks, try these extensions:
 - **File Management:** Upload, download, and storage operations
 
 ---
-
-**Happy coding! 🚀**
-
-Remember: The goal is to understand how different AI models can work with images and how various API design patterns solve the same problems in different ways.
 
 # <img src="dialx-banner.png">
