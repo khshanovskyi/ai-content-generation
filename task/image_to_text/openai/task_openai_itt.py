@@ -29,6 +29,7 @@ def start() -> None:
     #    - content: list with two items:
     #      * TxtContent(text="What do you see on this picture?")
     #      * ImgContent(image_url=ImgUrl(url=f"data:image/png;base64,{base64_image}"))
+    #  ----------------------------------------------------------------------------------------------------------------
     #  Note: This approach embeds the image directly in the message as base64 data URL! Here we follow the OpenAI
     #        Specification but since requests are going to the DIAL Core, we can use different models and DIAL Core
     #        will adapt them to format Gemini or Anthropic is using. In case if we go directly to

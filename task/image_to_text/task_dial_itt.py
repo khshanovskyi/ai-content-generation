@@ -42,10 +42,12 @@ def start() -> None:
     #    - role: Role.USER
     #    - content: "What do you see on this picture?"
     #    - custom_content: CustomContent(attachments=[attachment])
+    #  ---------------------------------------------------------------------------------------------------------------
     #  Note: This approach uploads the image to DIAL bucket and references it via attachment. The key benefit of this
     #        approach that we can use Models from different vendors (OpenAI, Google, Anthropic). The DIAL Core
     #        adapts this attachment to Message content in appropriate format for Model.
     #  TRY THIS APPROACH WITH DIFFERENT MODELS!
+    #  Optional: Try upload 2+ pictures for analysis
     pass
 
 
