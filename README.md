@@ -82,6 +82,7 @@ Complete the implementation of these three practice files:
 - Create text prompt for image generation
 - Use DALL-E 3 model for generation
 - Download and save generated images
+- Experiment with `size`, `quality` and `style` of output via `custom_fields` configuration parameter
 - **Key Learning:** AI image generation and file handling
 
 
