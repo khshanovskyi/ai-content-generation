@@ -18,7 +18,29 @@ def start() -> None:
         image_bytes = image_file.read()
     base64_image = base64.b64encode(image_bytes).decode('utf-8')
 
-    pass
+    dalle_client = DialModelClient(
+        endpoint=DIAL_CHAT_COMPLETIONS_ENDPOINT,
+        deployment_name='gpt-4o-2024-08-06',
+        api_key=API_KEY,
+    )
+
+    dalle_client.get_completion(
+        [
+            ContentedMessage(
+                role=Role.USER,
+                content=[
+                    TxtContent(
+                        text="What do you see on this picture?"
+                    ),
+                    ImgContent(
+                        image_url=ImgUrl(
+                            url=f"data:image/png;base64,{base64_image}"
+                        )
+                    )
+                ]
+            )
+        ]
+    )
 
 
 start()

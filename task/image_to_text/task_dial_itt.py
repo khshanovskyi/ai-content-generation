@@ -14,11 +14,50 @@ async def _put_image() -> Attachment:
     file_name = 'dialx-banner.png'
     image_path = Path(__file__).parent.parent.parent / file_name
     mime_type_png = 'image/png'
-    pass
+
+    async with DialBucketClient(
+            api_key=API_KEY,
+            base_url=DIAL_URL
+    ) as bucket_client:
+        with open(image_path, "rb") as f:
+            image_bytes = f.read()
+
+        image_content = BytesIO(image_bytes)
+
+        attachment = await bucket_client.put_file(
+            name=file_name,
+            mime_type=mime_type_png,
+            content=image_content
+        )
+
+        return Attachment(
+            title=file_name,
+            url=attachment.get("url"),
+            type=mime_type_png
+        )
 
 
 def start() -> None:
-    pass
+    dalle_client = DialModelClient(
+        endpoint=DIAL_CHAT_COMPLETIONS_ENDPOINT,
+        deployment_name='anthropic.claude-3-7-sonnet-20250219-v1:0',
+        api_key=API_KEY,
+    )
+
+    attachment = asyncio.run(_put_image())
+    print(attachment)
+
+    dalle_client.get_completion(
+        [
+            Message(
+                role=Role.USER,
+                content="What do you see on this picture?",
+                custom_content=CustomContent(
+                    attachments=[attachment]
+                )
+            )
+        ]
+    )
 
 
 start()

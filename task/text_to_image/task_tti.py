@@ -9,11 +9,42 @@ from task._models.role import Role
 
 
 async def _save_images(attachments):
-    pass
+    """Async function to download and save images"""
+
+    async with DialBucketClient(
+            api_key=API_KEY,
+            base_url=DIAL_URL
+    ) as bucket_client:
+        for i, attachment in enumerate(attachments):
+            if attachment.type and attachment.type == 'image/png':
+                image_data = await bucket_client.get_file(attachment.url)
+                filename = f"{datetime.now()}.png"
+
+                with open(filename, 'wb') as f:
+                    f.write(image_data)
+
+                print(f"Image saved: {filename}")
 
 
 def start() -> None:
-    pass
+    dalle_client = DialModelClient(
+        endpoint=DIAL_CHAT_COMPLETIONS_ENDPOINT,
+        deployment_name='dall-e-3',
+        api_key=API_KEY,
+    )
+
+    print("Type your question or 'exit' to quit.")
+    user_input = input("> ").strip()
+
+    ai_message = dalle_client.get_completion(
+        [Message(role=Role.USER, content=user_input)]
+    )
+
+    if custom_content := ai_message.custom_content:
+        if attachments := custom_content.attachments:
+            asyncio.run(_save_images(attachments))
 
 
 start()
+
+#   Sunny day on Bali
