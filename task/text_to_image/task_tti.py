@@ -8,6 +8,32 @@ from task._utils.model_client import DialModelClient
 from task._models.message import Message
 from task._models.role import Role
 
+class Size:
+    """
+    The size of the generated image.
+    """
+    square: str = '1024x1024'
+    height_rectangle: str = '1024x1792'
+    width_rectangle: str = '1792x1024'
+
+
+class Style:
+    """
+    The style of the generated image. Must be one of vivid or natural.
+     - Vivid causes the model to lean towards generating hyper-real and dramatic images.
+     - Natural causes the model to produce more natural, less hyper-real looking images.
+    """
+    natural: str = "natural"
+    vivid: str = "vivid"
+
+
+class Quality:
+    """
+    The quality of the image that will be generated.
+     - ‘hd’ creates images with finer details and greater consistency across the image.
+    """
+    standard: str = "standard"
+    hd: str = "hd"
 
 async def _save_images(attachments: list[Attachment]):
     # TODO:
@@ -32,11 +58,16 @@ def start() -> None:
     #    - Store in variable: dalle_client
     #  2. Set user input:
     #    - user_input = 'Sunny day on Bali' (or whatever you want to generate)
-    #  3. Generate image: ai_message = dalle_client.get_completion([Message(role=Role.USER, content=user_input)])
+    #  3. Generate image: ai_message = dalle_client.get_completion(
+    #                           messages=[Message(role=Role.USER, content=user_input)]
+    #                     )
     #  4. Check for attachments and save:
     #    - if custom_content := ai_message.custom_content:
     #    - if attachments := custom_content.attachments:
     #    - asyncio.run(_save_images(attachments))
+    #  5. Optional: try to configure the picture for output via `custom_fields` parameter.
+    #    - custom_fields={"size": Size.square, "style": Style.vivid, "quality": Quality.hd}
+    #    - Documentation: See `custom_fields`. https://dialx.ai/dial_api#operation/sendChatCompletionRequest
     pass
 
 
