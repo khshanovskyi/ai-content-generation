@@ -68,6 +68,7 @@ def start() -> None:
     #  5. Optional: try to configure the picture for output via `custom_fields` parameter.
     #    - custom_fields={"size": Size.square, "style": Style.vivid, "quality": Quality.hd}
     #    - Documentation: See `custom_fields`. https://dialx.ai/dial_api#operation/sendChatCompletionRequest
+    #  6. Optional: Test it with the 'imagegeneration@005' (Google image generation model)
     pass
 
 
