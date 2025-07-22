@@ -32,7 +32,7 @@ def start() -> None:
     # TODO:
     #  1. Create DialModelClient instance:
     #    - endpoint: DIAL_CHAT_COMPLETIONS_ENDPOINT
-    #    - deployment_name: 'anthropic.claude-3-7-sonnet-20250219-v1:0'
+    #    - deployment_name: 'anthropic.claude-v3-haiku'
     #    - api_key: API_KEY
     #    - Store in variable: dalle_client
     #  2. Upload image: attachment = asyncio.run(_put_image()) - the picture `dialx-banner.png` will be loaded to

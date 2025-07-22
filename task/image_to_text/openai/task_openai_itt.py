@@ -21,7 +21,7 @@ def start() -> None:
     # TODO:
     #  1. Create DialModelClient instance:
     #    - endpoint: DIAL_CHAT_COMPLETIONS_ENDPOINT
-    #    - deployment_name: 'gpt-4o-2024-08-06'
+    #    - deployment_name: 'gpt-4o'
     #    - api_key: API_KEY
     #    - Store in variable: dalle_client
     #  2. Call dalle_client.get_completion() with list containing one ContentedMessage:
