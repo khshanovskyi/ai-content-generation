@@ -1,6 +1,5 @@
 import asyncio
 from datetime import datetime
-from pyexpat.errors import messages
 
 from task._models.custom_content import Attachment
 from task._utils.constants import API_KEY, DIAL_URL, DIAL_CHAT_COMPLETIONS_ENDPOINT

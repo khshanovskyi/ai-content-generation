@@ -40,7 +40,7 @@ async def _put_image() -> Attachment:
 def start() -> None:
     dalle_client = DialModelClient(
         endpoint=DIAL_CHAT_COMPLETIONS_ENDPOINT,
-        deployment_name='anthropic.claude-3-7-sonnet-20250219-v1:0',
+        deployment_name='anthropic.claude-v3-haiku',
         api_key=API_KEY,
     )
 

@@ -20,7 +20,7 @@ def start() -> None:
 
     dalle_client = DialModelClient(
         endpoint=DIAL_CHAT_COMPLETIONS_ENDPOINT,
-        deployment_name='gpt-4o-2024-08-06',
+        deployment_name='gpt-4o',
         api_key=API_KEY,
     )
 
