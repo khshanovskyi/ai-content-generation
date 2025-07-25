@@ -30,7 +30,7 @@ def start() -> None:
     #      * TxtContent(text="What do you see on this picture?")
     #      * ImgContent(image_url=ImgUrl(url=f"data:image/png;base64,{base64_image}"))
     #      * OPTIONAL: You can pass downloadable image instead of base64:
-    #           ImgContent(image_url=ImgUrl(url="https://en.wikipedia.org/wiki/Elephant#/media/File:African_Bush_Elephant.jpg"))
+    #           ImgContent(image_url=ImgUrl(url="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg"))
     #  ----------------------------------------------------------------------------------------------------------------
     #  Note: This approach embeds the image directly in the message as base64 data URL! Here we follow the OpenAI
     #        Specification but since requests are going to the DIAL Core, we can use different models and DIAL Core
